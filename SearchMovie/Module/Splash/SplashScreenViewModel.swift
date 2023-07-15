@@ -18,6 +18,7 @@ class SplashScreenViewModel {
     
     private struct Constants {
         static let remoteConfigKey: String = "title"
+        static let remoteConfigValue: String = "Loodos"
     }
     
     weak var delegate: SplashScreenViewModelDelegate?

@@ -7,7 +7,6 @@
 
 import UIKit
 import Lottie
-import Network
 
 class SplashScreenViewController: UIViewController {
     
@@ -75,8 +74,13 @@ extension SplashScreenViewController: SplashScreenViewModelDelegate {
     }
     
     func presentNetworkError() {
+        self.titleLabel.text = "Network waiting..."
         showAlert(title: Constants.internetConnectionErrorTitle,
-                  message: Constants.internetConnectionErrorMessage)
+                  message: Constants.internetConnectionErrorMessage) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self?.viewModel.checkNetworkConnection()
+            }
+        }
     }
     
     func didFetchRemoteConfig(title: String) {

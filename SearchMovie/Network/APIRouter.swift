@@ -15,8 +15,8 @@ enum ApiRouter : APIConfiguration {
 extension ApiRouter {
     var path: String {
         switch self {
-        case .getMovies(let query):
-            return "\(query)"
+        case .getMovies:
+            return ""
         }
     }
     
@@ -29,8 +29,8 @@ extension ApiRouter {
     
     var parameters: Parameters?{
         switch self {
-        case .getMovies:
-            return nil
+        case .getMovies(let query):
+            return ["s": query]
         }
     }
     
@@ -53,9 +53,6 @@ extension ApiRouter {
         let apikeyParameter = URLQueryItem(name: "apikey", value: AppConstants.apiKey)
         queryItems.append(apikeyParameter)
         
-        let searchQuery = URLQueryItem(name: "s", value: path)
-        queryItems.append(searchQuery)
-
         // Parameters
         if method == .get  {
             if let parameters = parameters {

@@ -8,7 +8,7 @@
 import Foundation
 
 struct MoviesSearch: Codable {
-    let search: [Search]?
+    let search: [MovieSearch]?
     let totalResults, response, error: String?
     
     enum CodingKeys: String, CodingKey {
@@ -20,7 +20,7 @@ struct MoviesSearch: Codable {
 }
 
 // MARK: - Search
-struct Search: Codable {
+struct MovieSearch: Codable {
     let title, year, imdbID, type, poster: String
 
     enum CodingKeys: String, CodingKey {
