@@ -24,6 +24,8 @@
 		ACB9ACF42A62BF0A00306094 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */; };
 		ACB9ACF72A62CB7900306094 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */; };
 		ACB9ACF92A62D2B200306094 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF82A62D2B200306094 /* UIViewController+Extension.swift */; };
+		ACB9ACFB2A62DCE800306094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB9ACFA2A62DCE800306094 /* GoogleService-Info.plist */; };
+		ACB9ACFF2A62F35500306094 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACFE2A62F35500306094 /* SplashScreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		ACB9ACF82A62D2B200306094 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		ACB9ACFA2A62DCE800306094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ACB9ACFE2A62F35500306094 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,17 +95,17 @@
 		ACB9ACC92A61D49300306094 /* SearchMovie */ = {
 			isa = PBXGroup;
 			children = (
-				ACB9ACF52A62CB6E00306094 /* Core */,
 				ACB9ACDE2A61D5AD00306094 /* App */,
 				ACB9ACDF2A61D60500306094 /* Constants */,
+				ACB9ACF52A62CB6E00306094 /* Core */,
 				ACB9ACE22A61D63E00306094 /* Extensions */,
 				ACB9ACF22A61DD8F00306094 /* Model */,
 				ACB9ACE92A61D81B00306094 /* Network */,
-				ACB9ACCE2A61D49300306094 /* SearchMovieViewController.swift */,
+				ACB9ACFC2A62F32F00306094 /* Module */,
 				ACB9ACD32A61D49300306094 /* Assets.xcassets */,
 				ACB9ACD52A61D49300306094 /* LaunchScreen.storyboard */,
 				ACB9ACD82A61D49300306094 /* Info.plist */,
-				ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */,
+				ACB9ACFA2A62DCE800306094 /* GoogleService-Info.plist */,
 			);
 			path = SearchMovie;
 			sourceTree = "<group>";
@@ -158,6 +162,32 @@
 				ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		ACB9ACFC2A62F32F00306094 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				ACB9AD022A63021700306094 /* SearchMovie */,
+				ACB9ACFD2A62F34100306094 /* Splash */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		ACB9ACFD2A62F34100306094 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */,
+				ACB9ACFE2A62F35500306094 /* SplashScreenViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		ACB9AD022A63021700306094 /* SearchMovie */ = {
+			isa = PBXGroup;
+			children = (
+				ACB9ACCE2A61D49300306094 /* SearchMovieViewController.swift */,
+			);
+			path = SearchMovie;
 			sourceTree = "<group>";
 		};
 		AD08A37A8ED681978CCF8A11 /* Pods */ = {
@@ -231,6 +261,7 @@
 			files = (
 				ACB9ACD72A61D49300306094 /* LaunchScreen.storyboard in Resources */,
 				ACB9ACD42A61D49300306094 /* Assets.xcassets in Resources */,
+				ACB9ACFB2A62DCE800306094 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +323,7 @@
 				ACB9ACED2A61D87200306094 /* Configuration.swift in Sources */,
 				ACB9ACEB2A61D84200306094 /* APIClient.swift in Sources */,
 				ACB9ACE42A61D65400306094 /* Data+Extension.swift in Sources */,
+				ACB9ACFF2A62F35500306094 /* SplashScreenViewModel.swift in Sources */,
 				ACB9ACCD2A61D49300306094 /* SceneDelegate.swift in Sources */,
 				ACB9ACF72A62CB7900306094 /* NetworkMonitor.swift in Sources */,
 				ACB9ACE12A61D61900306094 /* AppConstants.swift in Sources */,
@@ -434,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZG5H5F2MN9;
@@ -451,6 +484,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.erdoganturpcu.SearchMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZG5H5F2MN9;
@@ -480,6 +515,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.erdoganturpcu.SearchMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

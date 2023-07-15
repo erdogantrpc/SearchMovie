@@ -13,12 +13,16 @@ class SplashScreenViewController: UIViewController {
     
     private struct Constants {
         static let splashAnimation: String = "splashAnimation"
+        static let remoteConfigErrorTitle: String = "Remote Config Hatası"
+        static let remoteConfigErrorMessage: String = "Remote Config çekilirken bir hata meydana geldi"
         static let internetConnectionErrorTitle: String = "İnternet Bağlantısı Bulunamadı"
         static let internetConnectionErrorMessage: String = """
                                                             Uygulamayı kullanabilmek için internete bağlı olmanız gerekir,
                                                             lütfen bağlantınızı kontrol ettikten sonra tekrar deneyiniz
                                                             """
     }
+    
+    private let viewModel: SplashScreenViewModel = SplashScreenViewModel()
     
     private let animationView: LottieAnimationView = {
         let animationView = LottieAnimationView(name: Constants.splashAnimation)
@@ -34,7 +38,6 @@ class SplashScreenViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: AppConstants.titleFont,
                             size: AppConstants.titleFontSize)
-        label.text = "Loodos"
         return label
     }()
     
@@ -42,14 +45,9 @@ class SplashScreenViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
-        NetworkMonitor.shared.delegate = self
         animationView.play()
-        NetworkMonitor.shared.startMonitoring()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NetworkMonitor.shared.delegate = nil
+        viewModel.delegate = self
+        viewModel.checkNetworkConnection()
     }
     
     private func setupUI() {
@@ -71,16 +69,29 @@ class SplashScreenViewController: UIViewController {
     }
 }
 
-extension SplashScreenViewController: NetworkMonitorDelegate {
-    func isNetworkActive(isActive: Bool) {
-        if isActive {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-                self?.setRootNavigationController(SplashScreenViewController())
-                NetworkMonitor.shared.stopMonitoring()
-            }
-        } else {
-            showAlert(title: Constants.internetConnectionErrorTitle,
-                      message: Constants.internetConnectionErrorMessage)
+extension SplashScreenViewController: SplashScreenViewModelDelegate {
+    func networkActive() {
+        viewModel.fetchRemoteConfigs()
+    }
+    
+    func presentNetworkError() {
+        showAlert(title: Constants.internetConnectionErrorTitle,
+                  message: Constants.internetConnectionErrorMessage)
+    }
+    
+    func didFetchRemoteConfig(title: String) {
+        DispatchQueue.main.async {
+            self.titleLabel.text = title
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.setRootNavigationController(SearchMovieViewController())
+            NetworkMonitor.shared.stopMonitoring()
+        }
+    }
+    
+    func presentRemoteConfigError() {
+        showAlert(title: Constants.remoteConfigErrorTitle,
+                  message: Constants.remoteConfigErrorMessage)
     }
 }

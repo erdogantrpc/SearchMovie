@@ -10,4 +10,7 @@ target 'SearchMovie' do
   pod 'PromisedFuture'
   pod 'AlamofireImage', '~> 4.1'
   pod 'lottie-ios'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseMessaging'
+  pod 'Firebase/RemoteConfig'
 end
