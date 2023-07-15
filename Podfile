@@ -9,4 +9,5 @@ target 'SearchMovie' do
   pod 'Alamofire'
   pod 'PromisedFuture'
   pod 'AlamofireImage', '~> 4.1'
+  pod 'lottie-ios'
 end

@@ -21,6 +21,9 @@
 		ACB9ACED2A61D87200306094 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACEC2A61D87200306094 /* Configuration.swift */; };
 		ACB9ACEF2A61D89800306094 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACEE2A61D89800306094 /* APIRouter.swift */; };
 		ACB9ACF12A61DD8800306094 /* MoviesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF02A61DD8800306094 /* MoviesSearch.swift */; };
+		ACB9ACF42A62BF0A00306094 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */; };
+		ACB9ACF72A62CB7900306094 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */; };
+		ACB9ACF92A62D2B200306094 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF82A62D2B200306094 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		ACB9ACEC2A61D87200306094 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		ACB9ACEE2A61D89800306094 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		ACB9ACF02A61DD8800306094 /* MoviesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearch.swift; sourceTree = "<group>"; };
+		ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		ACB9ACF82A62D2B200306094 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 		ACB9ACC92A61D49300306094 /* SearchMovie */ = {
 			isa = PBXGroup;
 			children = (
+				ACB9ACF52A62CB6E00306094 /* Core */,
 				ACB9ACDE2A61D5AD00306094 /* App */,
 				ACB9ACDF2A61D60500306094 /* Constants */,
 				ACB9ACE22A61D63E00306094 /* Extensions */,
@@ -94,6 +101,7 @@
 				ACB9ACD32A61D49300306094 /* Assets.xcassets */,
 				ACB9ACD52A61D49300306094 /* LaunchScreen.storyboard */,
 				ACB9ACD82A61D49300306094 /* Info.plist */,
+				ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */,
 			);
 			path = SearchMovie;
 			sourceTree = "<group>";
@@ -121,6 +129,7 @@
 				ACB9ACE32A61D65400306094 /* Data+Extension.swift */,
 				ACB9ACE52A61D66A00306094 /* Encodable+Extension.swift */,
 				ACB9ACE72A61D68C00306094 /* UITableViewCell+Extension.swift */,
+				ACB9ACF82A62D2B200306094 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -141,6 +150,14 @@
 				ACB9ACF02A61DD8800306094 /* MoviesSearch.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ACB9ACF52A62CB6E00306094 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		AD08A37A8ED681978CCF8A11 /* Pods */ = {
@@ -268,12 +285,15 @@
 			files = (
 				ACB9ACE82A61D68C00306094 /* UITableViewCell+Extension.swift in Sources */,
 				ACB9ACEF2A61D89800306094 /* APIRouter.swift in Sources */,
+				ACB9ACF42A62BF0A00306094 /* SplashScreenViewController.swift in Sources */,
 				ACB9ACCF2A61D49300306094 /* SearchMovieViewController.swift in Sources */,
+				ACB9ACF92A62D2B200306094 /* UIViewController+Extension.swift in Sources */,
 				ACB9ACCB2A61D49300306094 /* AppDelegate.swift in Sources */,
 				ACB9ACED2A61D87200306094 /* Configuration.swift in Sources */,
 				ACB9ACEB2A61D84200306094 /* APIClient.swift in Sources */,
 				ACB9ACE42A61D65400306094 /* Data+Extension.swift in Sources */,
 				ACB9ACCD2A61D49300306094 /* SceneDelegate.swift in Sources */,
+				ACB9ACF72A62CB7900306094 /* NetworkMonitor.swift in Sources */,
 				ACB9ACE12A61D61900306094 /* AppConstants.swift in Sources */,
 				ACB9ACF12A61DD8800306094 /* MoviesSearch.swift in Sources */,
 				ACB9ACE62A61D66A00306094 /* Encodable+Extension.swift in Sources */,
@@ -423,6 +443,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,6 +472,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
