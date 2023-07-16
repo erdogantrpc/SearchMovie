@@ -10,6 +10,7 @@ import Alamofire
 
 enum ApiRouter : APIConfiguration {
     case getMovies(query: String)
+    case getMovieDetail(imdbId: String)
 }
 
 extension ApiRouter {
@@ -17,13 +18,17 @@ extension ApiRouter {
         switch self {
         case .getMovies:
             return ""
+        case .getMovieDetail:
+            return ""
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .getMovies:
+        case .getMovies,
+             .getMovieDetail:
             return .get
+            
         }
     }
     
@@ -31,6 +36,8 @@ extension ApiRouter {
         switch self {
         case .getMovies(let query):
             return ["s": query]
+        case .getMovieDetail(imdbId: let imdbId):
+            return ["i": imdbId]
         }
     }
     

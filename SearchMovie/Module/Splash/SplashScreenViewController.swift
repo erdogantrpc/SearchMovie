@@ -8,17 +8,11 @@
 import UIKit
 import Lottie
 
-class SplashScreenViewController: UIViewController {
+class SplashScreenViewController: BaseViewController {
     
     private struct Constants {
         static let splashAnimation: String = "splashAnimation"
-        static let remoteConfigErrorTitle: String = "Remote Config Hatası"
-        static let remoteConfigErrorMessage: String = "Remote Config çekilirken bir hata meydana geldi"
-        static let internetConnectionErrorTitle: String = "İnternet Bağlantısı Bulunamadı"
-        static let internetConnectionErrorMessage: String = """
-                                                            Uygulamayı kullanabilmek için internete bağlı olmanız gerekir,
-                                                            lütfen bağlantınızı kontrol ettikten sonra tekrar deneyiniz
-                                                            """
+        static let waitingNetworkTitleLabelText: String = "Network waiting..."
     }
     
     private let viewModel: SplashScreenViewModel = SplashScreenViewModel()
@@ -74,9 +68,8 @@ extension SplashScreenViewController: SplashScreenViewModelDelegate {
     }
     
     func presentNetworkError() {
-        self.titleLabel.text = "Network waiting..."
-        showAlert(title: Constants.internetConnectionErrorTitle,
-                  message: Constants.internetConnectionErrorMessage) { [weak self] in
+        self.titleLabel.text = Constants.waitingNetworkTitleLabelText
+        showAlert(error: .networkNotFound) { [weak self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self?.viewModel.checkNetworkConnection()
             }
@@ -90,12 +83,11 @@ extension SplashScreenViewController: SplashScreenViewModelDelegate {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.setRootNavigationController(SearchMovieViewController())
-            NetworkMonitor.shared.stopMonitoring()
+            NetworkManager.shared.stopMonitoring()
         }
     }
     
     func presentRemoteConfigError() {
-        showAlert(title: Constants.remoteConfigErrorTitle,
-                  message: Constants.remoteConfigErrorMessage)
+        showAlert(error: .remoteConfig)
     }
 }

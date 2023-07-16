@@ -65,6 +65,9 @@ class MovieTableViewCell: UITableViewCell {
             movieImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             movieImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
             movieImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
+            movieImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
+            movieImageView.heightAnchor.constraint(equalToConstant: 200),
+            movieImageView.widthAnchor.constraint(equalToConstant: 150),
             
             titleLabel.leadingAnchor.constraint(equalTo: movieImageView.trailingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: containerView.trailingAnchor, constant: -16),
@@ -76,11 +79,11 @@ class MovieTableViewCell: UITableViewCell {
         ])
     }
     
-    func configure(movie: MovieSearch) {
-        //TODO: Placeholder image
-        if let url = URL(string: movie.poster) {
+    func configure(movie: Movie) {
+        if let url = URL(string: movie.poster ?? "") {
             movieImageView.af.setImage(withURL: url,
-                                       filter: ScaledToSizeWithRoundedCornersFilter(size: CGSize(width: 180,
+                                       placeholderImage: UIImage(named: AppConstants.imageNotFound),
+                                       filter: ScaledToSizeWithRoundedCornersFilter(size: CGSize(width: 150,
                                                                                                  height: 200),
                                                                                     radius: 20))
         }

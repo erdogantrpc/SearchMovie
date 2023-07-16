@@ -7,8 +7,8 @@
 
 import Network
 
-class NetworkMonitor {
-    static let shared = NetworkMonitor()
+class NetworkManager {
+    static let shared = NetworkManager()
     let monitor = NWPathMonitor()
     
     func startMonitoring(isNetworkActive: ((Bool) -> Void)?) {

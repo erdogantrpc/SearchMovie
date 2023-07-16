@@ -22,12 +22,19 @@
 		ACB9ACEF2A61D89800306094 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACEE2A61D89800306094 /* APIRouter.swift */; };
 		ACB9ACF12A61DD8800306094 /* MoviesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF02A61DD8800306094 /* MoviesSearch.swift */; };
 		ACB9ACF42A62BF0A00306094 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */; };
-		ACB9ACF72A62CB7900306094 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */; };
+		ACB9ACF72A62CB7900306094 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF62A62CB7900306094 /* NetworkManager.swift */; };
 		ACB9ACF92A62D2B200306094 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACF82A62D2B200306094 /* UIViewController+Extension.swift */; };
 		ACB9ACFF2A62F35500306094 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9ACFE2A62F35500306094 /* SplashScreenViewModel.swift */; };
 		ACB9AD042A6302C500306094 /* SearchMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD032A6302C500306094 /* SearchMovieViewModel.swift */; };
 		ACB9AD082A6309A300306094 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD072A6309A300306094 /* MovieTableViewCell.swift */; };
 		ACB9AD0B2A6327FF00306094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB9AD0A2A6327FF00306094 /* GoogleService-Info.plist */; };
+		ACB9AD122A63D4E600306094 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD112A63D4E600306094 /* MovieDetailViewController.swift */; };
+		ACB9AD142A63EBD800306094 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD132A63EBD800306094 /* MovieDetailViewModel.swift */; };
+		ACB9AD162A6429C700306094 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD152A6429C700306094 /* UIView+Extension.swift */; };
+		ACB9AD182A6429DE00306094 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD172A6429DE00306094 /* UILabel+Extension.swift */; };
+		ACB9AD1A2A645C1E00306094 /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD192A645C1E00306094 /* ErrorTypes.swift */; };
+		ACB9AD1C2A645E1500306094 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD1B2A645E1500306094 /* BaseViewController.swift */; };
+		ACB9AD1E2A64644700306094 /* AnalyticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9AD1D2A64644700306094 /* AnalyticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,13 +57,20 @@
 		ACB9ACEE2A61D89800306094 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		ACB9ACF02A61DD8800306094 /* MoviesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearch.swift; sourceTree = "<group>"; };
 		ACB9ACF32A62BF0A00306094 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
-		ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		ACB9ACF62A62CB7900306094 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ACB9ACF82A62D2B200306094 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		ACB9ACFE2A62F35500306094 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		ACB9AD032A6302C500306094 /* SearchMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieViewModel.swift; sourceTree = "<group>"; };
 		ACB9AD072A6309A300306094 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		ACB9AD092A63274600306094 /* SearchMovie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchMovie.entitlements; sourceTree = "<group>"; };
 		ACB9AD0A2A6327FF00306094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ACB9AD112A63D4E600306094 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		ACB9AD132A63EBD800306094 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		ACB9AD152A6429C700306094 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		ACB9AD172A6429DE00306094 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		ACB9AD192A645C1E00306094 /* ErrorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
+		ACB9AD1B2A645E1500306094 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		ACB9AD1D2A64644700306094 /* AnalyticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +152,9 @@
 			children = (
 				ACB9ACE32A61D65400306094 /* Data+Extension.swift */,
 				ACB9ACE52A61D66A00306094 /* Encodable+Extension.swift */,
+				ACB9AD172A6429DE00306094 /* UILabel+Extension.swift */,
 				ACB9ACE72A61D68C00306094 /* UITableViewCell+Extension.swift */,
+				ACB9AD152A6429C700306094 /* UIView+Extension.swift */,
 				ACB9ACF82A62D2B200306094 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
@@ -158,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				ACB9ACF02A61DD8800306094 /* MoviesSearch.swift */,
+				ACB9AD192A645C1E00306094 /* ErrorTypes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,7 +182,9 @@
 		ACB9ACF52A62CB6E00306094 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				ACB9ACF62A62CB7900306094 /* NetworkMonitor.swift */,
+				ACB9AD1D2A64644700306094 /* AnalyticManager.swift */,
+				ACB9ACF62A62CB7900306094 /* NetworkManager.swift */,
+				ACB9AD1B2A645E1500306094 /* BaseViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -191,11 +210,21 @@
 		ACB9AD022A63021700306094 /* SearchMovie */ = {
 			isa = PBXGroup;
 			children = (
+				ACB9AD102A63D4D700306094 /* MovieDetail */,
 				ACB9ACCE2A61D49300306094 /* SearchMovieViewController.swift */,
 				ACB9AD032A6302C500306094 /* SearchMovieViewModel.swift */,
 				ACB9AD072A6309A300306094 /* MovieTableViewCell.swift */,
 			);
 			path = SearchMovie;
+			sourceTree = "<group>";
+		};
+		ACB9AD102A63D4D700306094 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ACB9AD112A63D4E600306094 /* MovieDetailViewController.swift */,
+				ACB9AD132A63EBD800306094 /* MovieDetailViewModel.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		AD08A37A8ED681978CCF8A11 /* Pods */ = {
@@ -322,8 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB9AD1E2A64644700306094 /* AnalyticManager.swift in Sources */,
 				ACB9AD082A6309A300306094 /* MovieTableViewCell.swift in Sources */,
+				ACB9AD142A63EBD800306094 /* MovieDetailViewModel.swift in Sources */,
 				ACB9ACE82A61D68C00306094 /* UITableViewCell+Extension.swift in Sources */,
+				ACB9AD1C2A645E1500306094 /* BaseViewController.swift in Sources */,
 				ACB9ACEF2A61D89800306094 /* APIRouter.swift in Sources */,
 				ACB9ACF42A62BF0A00306094 /* SplashScreenViewController.swift in Sources */,
 				ACB9ACCF2A61D49300306094 /* SearchMovieViewController.swift in Sources */,
@@ -333,11 +365,15 @@
 				ACB9AD042A6302C500306094 /* SearchMovieViewModel.swift in Sources */,
 				ACB9ACEB2A61D84200306094 /* APIClient.swift in Sources */,
 				ACB9ACE42A61D65400306094 /* Data+Extension.swift in Sources */,
+				ACB9AD1A2A645C1E00306094 /* ErrorTypes.swift in Sources */,
 				ACB9ACFF2A62F35500306094 /* SplashScreenViewModel.swift in Sources */,
 				ACB9ACCD2A61D49300306094 /* SceneDelegate.swift in Sources */,
-				ACB9ACF72A62CB7900306094 /* NetworkMonitor.swift in Sources */,
+				ACB9ACF72A62CB7900306094 /* NetworkManager.swift in Sources */,
 				ACB9ACE12A61D61900306094 /* AppConstants.swift in Sources */,
 				ACB9ACF12A61DD8800306094 /* MoviesSearch.swift in Sources */,
+				ACB9AD182A6429DE00306094 /* UILabel+Extension.swift in Sources */,
+				ACB9AD122A63D4E600306094 /* MovieDetailViewController.swift in Sources */,
+				ACB9AD162A6429C700306094 /* UIView+Extension.swift in Sources */,
 				ACB9ACE62A61D66A00306094 /* Encodable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

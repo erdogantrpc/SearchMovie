@@ -65,8 +65,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         // ...
         
-        // Print full message.
-        print(userInfo)
+        // debugPrint full message.
+        debugPrint(userInfo)
         
         // Change this to your preferred presentation option
         return [[.alert, .sound]]
@@ -81,8 +81,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         
-        // Print full message.
-        print(userInfo)
+        // debugPrint full message.
+        debugPrint(userInfo)
     }
     
     func application(_ application: UIApplication,
@@ -95,13 +95,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       // With swizzling disabled you must let Messaging know about the message, for Analytics
       // Messaging.messaging().appDidReceiveMessage(userInfo)
 
-      // Print message ID.
+      // debugPrint message ID.
       if let messageID = userInfo[gcmMessageIDKey] {
-        print("Message ID: \(messageID)")
+        debugPrint("Message ID: \(messageID)")
       }
 
-      // Print full message.
-      print(userInfo)
+      // debugPrint full message.
+      debugPrint(userInfo)
 
       return UIBackgroundFetchResult.newData
     }
@@ -110,7 +110,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("Firebase registration token: \(String(describing: fcmToken))")
+        debugPrint("Firebase registration token: \(String(describing: fcmToken))")
         
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
         NotificationCenter.default.post(

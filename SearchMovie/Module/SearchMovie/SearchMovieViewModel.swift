@@ -8,13 +8,13 @@
 import Foundation
 
 protocol SearchMovieViewModelDelegate: AnyObject {
-    func didFetchMovies()
+    func didFetchComplete()
     func presentError(with message: String)
 }
 
 class SearchMovieViewModel {
     weak var delegate: SearchMovieViewModelDelegate?
-    var movies: [MovieSearch] = []
+    var movies: [Movie] = []
     var movieService: MovieServiceProtocol
     
     init(movieService: MovieServiceProtocol = APIClient()) {
@@ -24,22 +24,24 @@ class SearchMovieViewModel {
     func searchMovies(query: String) {
         guard !query.isEmpty else {
             self.movies = []
-            delegate?.didFetchMovies()
+            delegate?.didFetchComplete()
             return
         }
         
         let movieFuture = self.movieService.getMovies(query: query)
-        movieFuture.execute { [weak self] (movieResponse) in
+        movieFuture.execute { [weak self] movieResponse in
             guard let self else { return }
             if let error = movieResponse.error {
+                self.movies = []
+                self.delegate?.didFetchComplete()
                 self.delegate?.presentError(with: error)
                 return
             }
             guard let movies = movieResponse.search else { return }
             self.movies = movies
-            self.delegate?.didFetchMovies()
+            self.delegate?.didFetchComplete()
         } onFailure: { (error) in
-            self.delegate?.presentError(with: "Bekleyenmeyen hata")
+            self.delegate?.presentError(with: error.localizedDescription)
         }
     }
 }

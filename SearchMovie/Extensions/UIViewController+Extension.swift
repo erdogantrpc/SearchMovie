@@ -31,10 +31,10 @@ extension UIViewController {
         }
     }
     
-    func showAlert(title: String, message: String, handler: (() -> Void)? = nil) {
+    func showAlert(title: String = "Error", buttonTitle: String = "Okay", error: ErrorTypes, handler: (() -> Void)? = nil) {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "Tamam", style: .default) { _ in
+            let alert = UIAlertController(title: title, message: error.message, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: title, style: .default) { _ in
                 handler?()
             }
             alert.addAction(okButton)

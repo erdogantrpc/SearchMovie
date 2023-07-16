@@ -8,14 +8,11 @@
 import UIKit
 import Lottie
 
-class SearchMovieViewController: UIViewController {
+class SearchMovieViewController: BaseViewController {
     
     private struct Constants {
-        //TODO: Error Enum
-        static let searchAnimation: String = "searchAnimation"
         static let viewControllerTitle: String =  "Search Movie"
-        static let searchBarPlaceholder: String = "Search a fantastic movie"
-        static let error: String = "Error"
+        static let searchBarPlaceholder: String = "Search a Fantastic Movie"
     }
     
     private var timer: Timer?
@@ -43,20 +40,10 @@ class SearchMovieViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
-        tableView.allowsSelection = false
+        tableView.allowsMultipleSelection = false
         return tableView
     }()
     
-    private let searchAnimationView: LottieAnimationView = {
-        let animationView = LottieAnimationView(name: Constants.searchAnimation)
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        animationView.clipsToBounds = true
-        animationView.isHidden = true
-        animationView.contentMode = .scaleAspectFill
-        animationView.loopMode = .loop
-        return animationView
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -74,7 +61,6 @@ class SearchMovieViewController: UIViewController {
         title = Constants.viewControllerTitle
         view.backgroundColor = .white
         view.addSubview(containerStackView)
-        view.addSubview(searchAnimationView)
         containerStackView.addArrangedSubview(searchBar)
         containerStackView.addArrangedSubview(tableView)
         containerStackView.addArrangedSubview(UIView())
@@ -85,19 +71,8 @@ class SearchMovieViewController: UIViewController {
             containerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             containerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            containerStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            
-            searchAnimationView.heightAnchor.constraint(equalToConstant: 150),
-            searchAnimationView.widthAnchor.constraint(equalToConstant: 150),
-            searchAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            searchAnimationView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            containerStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-    
-    private func toggleAnimation(showAnimation: Bool) {
-        tableView.isHidden = showAnimation
-        searchAnimationView.isHidden = !showAnimation
-        showAnimation ? searchAnimationView.play() : searchAnimationView.stop()
     }
 }
 
@@ -111,10 +86,14 @@ extension SearchMovieViewController: UISearchBarDelegate {
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
             guard let self else { return }
             Task {
-                self.toggleAnimation(showAnimation: true)
+                self.toggleAnimation(showAnimation: true, view: self.tableView)
                 self.viewModel.searchMovies(query: searchText)
             }
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }
 
@@ -132,21 +111,27 @@ extension SearchMovieViewController: UITableViewDelegate, UITableViewDataSource 
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let imdbId = viewModel.movies[indexPath.row].imdbID else { return }
+        navigationController?.pushViewController(MovieDetailViewController(imdbId: imdbId), animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250
     }
 }
 
 extension SearchMovieViewController: SearchMovieViewModelDelegate {
-    func didFetchMovies() {
+    func didFetchComplete() {
         DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-            self?.toggleAnimation(showAnimation: false)
+            guard let self else { return }
+            self.tableView.reloadData()
+            self.toggleAnimation(showAnimation: false, view: self.tableView)
         }
     }
     
     func presentError(with message: String) {
-        self.toggleAnimation(showAnimation: false)
-        showAlert(title: Constants.error, message: message)
+        self.toggleAnimation(showAnimation: false, view: tableView)
+        showAlert(error: .custom(message: message))
     }
 }

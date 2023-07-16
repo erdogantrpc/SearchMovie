@@ -18,14 +18,13 @@ class SplashScreenViewModel {
     
     private struct Constants {
         static let remoteConfigKey: String = "title"
-        static let remoteConfigValue: String = "Loodos"
     }
     
     weak var delegate: SplashScreenViewModelDelegate?
     private let remoteConfig = RemoteConfig.remoteConfig()
     
     func checkNetworkConnection() {
-        NetworkMonitor.shared.startMonitoring { [weak self] isNetworkActive in
+        NetworkManager.shared.startMonitoring { [weak self] isNetworkActive in
             if isNetworkActive {
                 self?.delegate?.networkActive()
             } else {

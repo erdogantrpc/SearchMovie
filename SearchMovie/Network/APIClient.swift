@@ -10,10 +10,11 @@ import PromisedFuture
 
 protocol MovieServiceProtocol {
     func getMovies(query: String) -> Future<MoviesSearch, AFError>
+    func getMovieDetails(imdbId: String) -> Future<Movie, AFError>
 }
 
 final class APIClient: MovieServiceProtocol {
-    
+ 
     @discardableResult
     private func performRequest<T:Decodable>(route: APIConfiguration, decoder: JSONDecoder = JSONDecoder()) -> Future<T,AFError> {
         return Future(operation: { completion in
@@ -30,5 +31,9 @@ final class APIClient: MovieServiceProtocol {
     
     func getMovies(query: String) -> PromisedFuture.Future<MoviesSearch, Alamofire.AFError> {
         return performRequest(route: ApiRouter.getMovies(query: query))
+    }
+    
+    func getMovieDetails(imdbId: String) -> PromisedFuture.Future<Movie, Alamofire.AFError> {
+        return performRequest(route: ApiRouter.getMovieDetail(imdbId: imdbId))
     }
 }
