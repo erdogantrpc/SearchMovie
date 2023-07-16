@@ -22,11 +22,15 @@ class MovieDetailViewModel {
         self.movieService = movieService
     }
     
-    
     func getMovieDetails() {
         let movieDetailFuture = self.movieService.getMovieDetails(imdbId: imdbId)
         movieDetailFuture.execute { [weak self] movieDetailResponse in
             guard let self else { return }
+            if let error = movieDetailResponse.error {
+                self.delegate?.presentError(with: error)
+                return
+            }
+            
             self.delegate?.didFetchMovieDetails(with: movieDetailResponse)
         } onFailure: { error in
             self.delegate?.presentError(with: error.localizedDescription)

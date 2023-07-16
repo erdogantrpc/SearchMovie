@@ -157,11 +157,14 @@ extension MovieDetailViewController: MovieDetailViewModelDelegate {
                                                                                                  height: 250),
                                                                                     radius: 20))
         }
-        guard let title = movieDetail.title, let director = movieDetail.director, let language = movieDetail.language, let rating = movieDetail.ratings?[0].value else { return }
+        guard let title = movieDetail.title,
+              let director = movieDetail.director,
+              let language = movieDetail.language,
+              let ratings = movieDetail.ratings else { return }
         movieTitleLabel.text = title
         movieDirectorNameLabel.text = "Director: \(director)"
         movieLanguageLabel.text = "Language: \(language)"
-        movieRatingLabel.text = "Rating: \(rating)"
+        movieRatingLabel.text = !ratings.isEmpty ? "Rating: \(ratings.first?.value ?? "")" : "Rating: N/A"
         movieDescriptionLabel.text = movieDetail.plot
         self.toggleAnimation(showAnimation: false)
         AnalyticManager.shared.trackAction(screenType:
@@ -174,6 +177,8 @@ extension MovieDetailViewController: MovieDetailViewModelDelegate {
     }
     
     func presentError(with message: String) {
-        showAlert(error: .custom(message: message))
+        showAlert(error: .custom(message: message)) { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 }
